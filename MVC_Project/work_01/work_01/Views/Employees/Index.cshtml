@@ -1,0 +1,75 @@
+﻿@model IEnumerable<work_01.Models.tblEmployee>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.EmpName)
+        <th>
+            @Html.DisplayNameFor(model => model.JoiningDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CurrentSalary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblDepartment.DepartmentName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblDesignation.Designation)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblDivision.Division)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblEmployeeType.EmpType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblSection.SectionName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.JoiningDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CurrentSalary)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.tblDepartment.DepartmentName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblDesignation.Designation)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblDivision.Division)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblEmployeeType.EmpType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblSection.SectionName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.EmpCode }) |
+            @Html.ActionLink("Details", "Details", new { id=item.EmpCode }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.EmpCode })
+        </td>
+    </tr>
+}
+
+</table>

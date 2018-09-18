@@ -1,0 +1,17 @@
+﻿body {
+    padding:0;
+    margin:0;
+    background-image:url("/images/back.jpg")
+}
+#form1{
+    margin:15% 35%;
+    color:white;
+}
+fieldset{
+   background:#080f34
+}
+label{
+    display:inline-block;
+    text-align:right;
+    width:100px
+}

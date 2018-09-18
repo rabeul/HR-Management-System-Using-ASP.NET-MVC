@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="2c6f904a365941a582ec0d72104bf4c2" Name="Diagram1">
+        <EntityTypeShape EntityType="testDbModel.tblAttendence" Width="1.5" PointX="7.5" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="testDbModel.tblBenefit" Width="1.5" PointX="7.5" PointY="6.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="testDbModel.tblDepartment" Width="1.5" PointX="0.75" PointY="10.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="testDbModel.tblDesignation" Width="1.5" PointX="3" PointY="10.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="testDbModel.tblDivision" Width="1.5" PointX="3" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="testDbModel.tblEmployee" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="testDbModel.tblEmployeeType" Width="1.5" PointX="3" PointY="13.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="testDbModel.tbleTransferInfo" Width="1.5" PointX="7.5" PointY="12.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="testDbModel.tblSalary" Width="1.5" PointX="7.5" PointY="17.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="testDbModel.tblSalaryCreate" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="testDbModel.tblSection" Width="1.5" PointX="3" PointY="16" IsExpanded="true" />
+        <AssociationConnector Association="testDbModel.FK__tblAttend__EmpCo__267ABA7A" ManuallyRouted="false" />
+        <AssociationConnector Association="testDbModel.FK__tblBenefi__EmpCo__29572725" ManuallyRouted="false" />
+        <AssociationConnector Association="testDbModel.FK__tblEmploy__DeptC__1A14E395" ManuallyRouted="false" />
+        <AssociationConnector Association="testDbModel.FK_tblDesignation_tblDepartment" ManuallyRouted="false" />
+        <AssociationConnector Association="testDbModel.FK__tblEmploy__Desig__1B0907CE" ManuallyRouted="false" />
+        <AssociationConnector Association="testDbModel.FK__tblEmploy__DivCo__1CF15040" ManuallyRouted="false" />
+        <AssociationConnector Association="testDbModel.FK__tblEmploy__EmpTy__1DE57479" ManuallyRouted="false" />
+        <AssociationConnector Association="testDbModel.FK__tblEmploy__SecCo__1BFD2C07" ManuallyRouted="false" />
+        <AssociationConnector Association="testDbModel.FK__tbleTrans__EmpCo__2C3393D0" ManuallyRouted="false" />
+        <AssociationConnector Association="testDbModel.FK_tblSalary_tblEmployee" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

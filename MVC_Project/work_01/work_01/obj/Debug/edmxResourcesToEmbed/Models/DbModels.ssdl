@@ -1,0 +1,326 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="testDbModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="tblAttendence">
+    <Key>
+      <PropertyRef Name="EmpCode" />
+      <PropertyRef Name="AttDate" />
+    </Key>
+    <Property Name="EmpCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="AttDate" Type="datetime" Nullable="false" />
+    <Property Name="InHour" Type="nvarchar" MaxLength="20" />
+    <Property Name="InMinute" Type="nvarchar" MaxLength="20" />
+    <Property Name="OutHour" Type="nvarchar" MaxLength="20" />
+    <Property Name="OutMinute" Type="nvarchar" MaxLength="20" />
+    <Property Name="AttStatus" Type="nvarchar" MaxLength="20" />
+    <Property Name="TotalRegularHour" Type="nvarchar" MaxLength="30" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="100" />
+  </EntityType>
+  <EntityType Name="tblBenefit">
+    <Key>
+      <PropertyRef Name="BenefitCode" />
+    </Key>
+    <Property Name="BenefitCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpCode" Type="int" />
+    <Property Name="BenefitAmount" Type="nvarchar" MaxLength="20" />
+    <Property Name="BenefitDate" Type="datetime" />
+    <Property Name="BenefitType" Type="nvarchar" MaxLength="20" />
+    <Property Name="PreviousNetSalary" Type="nvarchar" MaxLength="20" />
+    <Property Name="NewNetSalary" Type="nvarchar" MaxLength="20" />
+    <Property Name="Gross" Type="nvarchar" MaxLength="20" />
+    <Property Name="Basic" Type="nvarchar" MaxLength="20" />
+    <Property Name="HouseRent" Type="nvarchar" MaxLength="20" />
+    <Property Name="Medical" Type="nvarchar" MaxLength="20" />
+    <Property Name="ConvenceAll" Type="nvarchar" MaxLength="20" />
+    <Property Name="CashIntensive" Type="nvarchar" MaxLength="20" />
+    <Property Name="launceAllowance" Type="nvarchar" MaxLength="20" />
+    <Property Name="otherAllowance" Type="nvarchar" MaxLength="20" />
+    <Property Name="StateStatus" Type="nvarchar" MaxLength="20" />
+    <Property Name="BenifitActiveDate" Type="datetime" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+  </EntityType>
+  <EntityType Name="tblDepartment">
+    <Key>
+      <PropertyRef Name="DeptCode" />
+    </Key>
+    <Property Name="DeptCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DepartmentName" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="tblDesignation">
+    <Key>
+      <PropertyRef Name="DesigCode" />
+    </Key>
+    <Property Name="DesigCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Designation" Type="nvarchar" MaxLength="30" />
+    <Property Name="DeptCode" Type="int" />
+  </EntityType>
+  <EntityType Name="tblDivision">
+    <Key>
+      <PropertyRef Name="DivCode" />
+    </Key>
+    <Property Name="DivCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Division" Type="nvarchar" MaxLength="40" />
+  </EntityType>
+  <EntityType Name="tblEmployee">
+    <Key>
+      <PropertyRef Name="EmpCode" />
+    </Key>
+    <Property Name="EmpCode" Type="int" Nullable="false" />
+    <Property Name="EmpName" Type="nvarchar" MaxLength="50" />
+    <Property Name="Address" Type="nvarchar" MaxLength="100" />
+    <Property Name="Email" Type="nvarchar" MaxLength="20" />
+    <Property Name="DOB" Type="datetime" />
+    <Property Name="FatherName" Type="nvarchar" MaxLength="50" />
+    <Property Name="MotherName" Type="nvarchar" MaxLength="50" />
+    <Property Name="ContactNo" Type="nvarchar" MaxLength="15" />
+    <Property Name="Gender" Type="nvarchar" MaxLength="10" />
+    <Property Name="Nationality" Type="nvarchar" MaxLength="20" />
+    <Property Name="Religion" Type="nvarchar" MaxLength="20" />
+    <Property Name="NID" Type="nvarchar" MaxLength="30" />
+    <Property Name="JoiningDate" Type="datetime" />
+    <Property Name="DeptCode" Type="int" />
+    <Property Name="DesigCode" Type="int" />
+    <Property Name="SecCode" Type="int" />
+    <Property Name="DivCode" Type="int" />
+    <Property Name="EmpTypeCode" Type="int" />
+    <Property Name="CurrentSalary" Type="nvarchar" MaxLength="30" />
+    <Property Name="AccNo" Type="nvarchar" MaxLength="20" />
+    <Property Name="BankName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblEmployeeType">
+    <Key>
+      <PropertyRef Name="EmpTypecode" />
+    </Key>
+    <Property Name="EmpTypecode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpType" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <EntityType Name="tbleTransferInfo">
+    <Key>
+      <PropertyRef Name="TRCode" />
+    </Key>
+    <Property Name="TRCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="TRDate" Type="datetime" />
+    <Property Name="OldDeptCode" Type="int" />
+    <Property Name="NewDeptCode" Type="int" />
+    <Property Name="OldDesignationCode" Type="int" />
+    <Property Name="NewDesigtnationCode" Type="int" />
+    <Property Name="OldSecCode" Type="int" />
+    <Property Name="NewSecCode" Type="int" />
+    <Property Name="OldDivCode" Type="int" />
+    <Property Name="NewDivCode" Type="int" />
+    <Property Name="TrActivateDate" Type="datetime" />
+    <Property Name="EmpCode" Type="int" />
+    <Property Name="StateStatus" Type="nvarchar" MaxLength="20" />
+    <Property Name="Remarks" Type="nvarchar" MaxLength="200" />
+    <Property Name="EmpName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="tblSalary">
+    <Key>
+      <PropertyRef Name="SalaryCode" />
+    </Key>
+    <Property Name="SalaryCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpCode" Type="int" />
+    <Property Name="Basic" Type="nvarchar" MaxLength="20" />
+    <Property Name="HouseRent" Type="nvarchar" MaxLength="20" />
+    <Property Name="Medical" Type="nvarchar" MaxLength="20" />
+    <Property Name="OtherAllowance" Type="nvarchar" MaxLength="20" />
+    <Property Name="Gross" Type="nvarchar" MaxLength="20" />
+  </EntityType>
+  <EntityType Name="tblSalaryCreate">
+    <Key>
+      <PropertyRef Name="SalCreateCode" />
+      <PropertyRef Name="EmpCode" />
+    </Key>
+    <Property Name="SalCreateCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="EmpCode" Type="int" Nullable="false" />
+    <Property Name="BasicAmt" Type="nvarchar" MaxLength="20" />
+    <Property Name="HouseRentAmt" Type="nvarchar" MaxLength="20" />
+    <Property Name="MedicalAmt" Type="nvarchar" MaxLength="20" />
+    <Property Name="OtherAllAmt" Type="nvarchar" MaxLength="20" />
+    <Property Name="GrossAmt" Type="nvarchar" MaxLength="20" />
+    <Property Name="MonthNo" Type="int" />
+    <Property Name="YearNo" Type="int" />
+    <Property Name="SFromDT" Type="datetime" />
+    <Property Name="SToDT" Type="datetime" />
+    <Property Name="Createdate" Type="datetime" />
+  </EntityType>
+  <EntityType Name="tblSection">
+    <Key>
+      <PropertyRef Name="SecCode" />
+    </Key>
+    <Property Name="SecCode" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="SectionName" Type="nvarchar" MaxLength="30" />
+  </EntityType>
+  <Association Name="FK__tblAttend__EmpCo__267ABA7A">
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="1" />
+    <End Role="tblAttendence" Type="Self.tblAttendence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployee">
+        <PropertyRef Name="EmpCode" />
+      </Principal>
+      <Dependent Role="tblAttendence">
+        <PropertyRef Name="EmpCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblBenefi__EmpCo__29572725">
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+    <End Role="tblBenefit" Type="Self.tblBenefit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployee">
+        <PropertyRef Name="EmpCode" />
+      </Principal>
+      <Dependent Role="tblBenefit">
+        <PropertyRef Name="EmpCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmploy__DeptC__1A14E395">
+    <End Role="tblDepartment" Type="Self.tblDepartment" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDepartment">
+        <PropertyRef Name="DeptCode" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="DeptCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmploy__Desig__1B0907CE">
+    <End Role="tblDesignation" Type="Self.tblDesignation" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDesignation">
+        <PropertyRef Name="DesigCode" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="DesigCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmploy__DivCo__1CF15040">
+    <End Role="tblDivision" Type="Self.tblDivision" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDivision">
+        <PropertyRef Name="DivCode" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="DivCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmploy__EmpTy__1DE57479">
+    <End Role="tblEmployeeType" Type="Self.tblEmployeeType" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployeeType">
+        <PropertyRef Name="EmpTypecode" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="EmpTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmploy__SecCo__1BFD2C07">
+    <End Role="tblSection" Type="Self.tblSection" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSection">
+        <PropertyRef Name="SecCode" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="SecCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbleTrans__EmpCo__2C3393D0">
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+    <End Role="tbleTransferInfo" Type="Self.tbleTransferInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployee">
+        <PropertyRef Name="EmpCode" />
+      </Principal>
+      <Dependent Role="tbleTransferInfo">
+        <PropertyRef Name="EmpCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDesignation_tblDepartment">
+    <End Role="tblDepartment" Type="Self.tblDepartment" Multiplicity="0..1" />
+    <End Role="tblDesignation" Type="Self.tblDesignation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDepartment">
+        <PropertyRef Name="DeptCode" />
+      </Principal>
+      <Dependent Role="tblDesignation">
+        <PropertyRef Name="DeptCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblSalary_tblEmployee">
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+    <End Role="tblSalary" Type="Self.tblSalary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployee">
+        <PropertyRef Name="EmpCode" />
+      </Principal>
+      <Dependent Role="tblSalary">
+        <PropertyRef Name="EmpCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="testDbModelStoreContainer">
+    <EntitySet Name="tblAttendence" EntityType="Self.tblAttendence" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblBenefit" EntityType="Self.tblBenefit" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDepartment" EntityType="Self.tblDepartment" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDesignation" EntityType="Self.tblDesignation" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblDivision" EntityType="Self.tblDivision" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEmployee" EntityType="Self.tblEmployee" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblEmployeeType" EntityType="Self.tblEmployeeType" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tbleTransferInfo" EntityType="Self.tbleTransferInfo" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSalary" EntityType="Self.tblSalary" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSalaryCreate" EntityType="Self.tblSalaryCreate" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="tblSection" EntityType="Self.tblSection" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__tblAttend__EmpCo__267ABA7A" Association="Self.FK__tblAttend__EmpCo__267ABA7A">
+      <End Role="tblEmployee" EntitySet="tblEmployee" />
+      <End Role="tblAttendence" EntitySet="tblAttendence" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblBenefi__EmpCo__29572725" Association="Self.FK__tblBenefi__EmpCo__29572725">
+      <End Role="tblEmployee" EntitySet="tblEmployee" />
+      <End Role="tblBenefit" EntitySet="tblBenefit" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmploy__DeptC__1A14E395" Association="Self.FK__tblEmploy__DeptC__1A14E395">
+      <End Role="tblDepartment" EntitySet="tblDepartment" />
+      <End Role="tblEmployee" EntitySet="tblEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmploy__Desig__1B0907CE" Association="Self.FK__tblEmploy__Desig__1B0907CE">
+      <End Role="tblDesignation" EntitySet="tblDesignation" />
+      <End Role="tblEmployee" EntitySet="tblEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmploy__DivCo__1CF15040" Association="Self.FK__tblEmploy__DivCo__1CF15040">
+      <End Role="tblDivision" EntitySet="tblDivision" />
+      <End Role="tblEmployee" EntitySet="tblEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmploy__EmpTy__1DE57479" Association="Self.FK__tblEmploy__EmpTy__1DE57479">
+      <End Role="tblEmployeeType" EntitySet="tblEmployeeType" />
+      <End Role="tblEmployee" EntitySet="tblEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmploy__SecCo__1BFD2C07" Association="Self.FK__tblEmploy__SecCo__1BFD2C07">
+      <End Role="tblSection" EntitySet="tblSection" />
+      <End Role="tblEmployee" EntitySet="tblEmployee" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbleTrans__EmpCo__2C3393D0" Association="Self.FK__tbleTrans__EmpCo__2C3393D0">
+      <End Role="tblEmployee" EntitySet="tblEmployee" />
+      <End Role="tbleTransferInfo" EntitySet="tbleTransferInfo" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDesignation_tblDepartment" Association="Self.FK_tblDesignation_tblDepartment">
+      <End Role="tblDepartment" EntitySet="tblDepartment" />
+      <End Role="tblDesignation" EntitySet="tblDesignation" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblSalary_tblEmployee" Association="Self.FK_tblSalary_tblEmployee">
+      <End Role="tblEmployee" EntitySet="tblEmployee" />
+      <End Role="tblSalary" EntitySet="tblSalary" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

@@ -1,0 +1,97 @@
+﻿@model IEnumerable<work_01.Models.tblBenefit>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.BenefitAmount)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.BenefitType)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PreviousNetSalary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.NewNetSalary)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gross)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Basic)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HouseRent)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Medical)
+        </th>
+     
+      
+        <th>
+            @Html.DisplayNameFor(model => model.BenifitActiveDate)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.tblEmployee.EmpName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.BenefitAmount)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BenefitDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.BenefitType)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.PreviousNetSalary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.NewNetSalary)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gross)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Basic)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HouseRent)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Medical)
+        </td>
+     
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.BenifitActiveDate)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.tblEmployee.EmpName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.BenefitCode }) |
+            @Html.ActionLink("Details", "Details", new { id=item.BenefitCode }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.BenefitCode })
+        </td>
+    </tr>
+}
+
+</table>

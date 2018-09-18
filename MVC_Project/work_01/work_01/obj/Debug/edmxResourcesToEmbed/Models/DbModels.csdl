@@ -1,0 +1,346 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="testDbModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityType Name="tblAttendence">
+    <Key>
+      <PropertyRef Name="EmpCode" />
+      <PropertyRef Name="AttDate" />
+    </Key>
+    <Property Name="EmpCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="AttDate" Type="DateTime" Nullable="false" Precision="3" />
+    <Property Name="InHour" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="InMinute" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="OutHour" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="OutMinute" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="AttStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="TotalRegularHour" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblEmployee" Relationship="Self.FK__tblAttend__EmpCo__267ABA7A" FromRole="tblAttendence" ToRole="tblEmployee" />
+  </EntityType>
+  <EntityType Name="tblBenefit">
+    <Key>
+      <PropertyRef Name="BenefitCode" />
+    </Key>
+    <Property Name="BenefitCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpCode" Type="Int32" />
+    <Property Name="BenefitAmount" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BenefitDate" Type="DateTime" Precision="3" />
+    <Property Name="BenefitType" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="PreviousNetSalary" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="NewNetSalary" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Gross" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Basic" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="HouseRent" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Medical" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="ConvenceAll" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="CashIntensive" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="launceAllowance" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="otherAllowance" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="StateStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BenifitActiveDate" Type="DateTime" Precision="3" />
+    <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblEmployee" Relationship="Self.FK__tblBenefi__EmpCo__29572725" FromRole="tblBenefit" ToRole="tblEmployee" />
+  </EntityType>
+  <EntityType Name="tblDepartment">
+    <Key>
+      <PropertyRef Name="DeptCode" />
+    </Key>
+    <Property Name="DeptCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="DepartmentName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__DeptC__1A14E395" FromRole="tblDepartment" ToRole="tblEmployee" />
+    <NavigationProperty Name="tblDesignations" Relationship="Self.FK_tblDesignation_tblDepartment" FromRole="tblDepartment" ToRole="tblDesignation" />
+  </EntityType>
+  <EntityType Name="tblDesignation">
+    <Key>
+      <PropertyRef Name="DesigCode" />
+    </Key>
+    <Property Name="DesigCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Designation" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="DeptCode" Type="Int32" />
+    <NavigationProperty Name="tblDepartment" Relationship="Self.FK_tblDesignation_tblDepartment" FromRole="tblDesignation" ToRole="tblDepartment" />
+    <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__Desig__1B0907CE" FromRole="tblDesignation" ToRole="tblEmployee" />
+  </EntityType>
+  <EntityType Name="tblDivision">
+    <Key>
+      <PropertyRef Name="DivCode" />
+    </Key>
+    <Property Name="DivCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Division" Type="String" MaxLength="40" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__DivCo__1CF15040" FromRole="tblDivision" ToRole="tblEmployee" />
+  </EntityType>
+  <EntityType Name="tblEmployee">
+    <Key>
+      <PropertyRef Name="EmpCode" />
+    </Key>
+    <Property Name="EmpCode" Type="Int32" Nullable="false" />
+    <Property Name="EmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Address" Type="String" MaxLength="100" FixedLength="false" Unicode="true" />
+    <Property Name="Email" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="DOB" Type="DateTime" Precision="3" />
+    <Property Name="FatherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="MotherName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="ContactNo" Type="String" MaxLength="15" FixedLength="false" Unicode="true" />
+    <Property Name="Gender" Type="String" MaxLength="10" FixedLength="false" Unicode="true" />
+    <Property Name="Nationality" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Religion" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="NID" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="JoiningDate" Type="DateTime" Precision="3" />
+    <Property Name="DeptCode" Type="Int32" />
+    <Property Name="DesigCode" Type="Int32" />
+    <Property Name="SecCode" Type="Int32" />
+    <Property Name="DivCode" Type="Int32" />
+    <Property Name="EmpTypeCode" Type="Int32" />
+    <Property Name="CurrentSalary" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <Property Name="AccNo" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="BankName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblAttendences" Relationship="Self.FK__tblAttend__EmpCo__267ABA7A" FromRole="tblEmployee" ToRole="tblAttendence" />
+    <NavigationProperty Name="tblBenefits" Relationship="Self.FK__tblBenefi__EmpCo__29572725" FromRole="tblEmployee" ToRole="tblBenefit" />
+    <NavigationProperty Name="tblDepartment" Relationship="Self.FK__tblEmploy__DeptC__1A14E395" FromRole="tblEmployee" ToRole="tblDepartment" />
+    <NavigationProperty Name="tblDesignation" Relationship="Self.FK__tblEmploy__Desig__1B0907CE" FromRole="tblEmployee" ToRole="tblDesignation" />
+    <NavigationProperty Name="tblDivision" Relationship="Self.FK__tblEmploy__DivCo__1CF15040" FromRole="tblEmployee" ToRole="tblDivision" />
+    <NavigationProperty Name="tblEmployeeType" Relationship="Self.FK__tblEmploy__EmpTy__1DE57479" FromRole="tblEmployee" ToRole="tblEmployeeType" />
+    <NavigationProperty Name="tblSection" Relationship="Self.FK__tblEmploy__SecCo__1BFD2C07" FromRole="tblEmployee" ToRole="tblSection" />
+    <NavigationProperty Name="tbleTransferInfoes" Relationship="Self.FK__tbleTrans__EmpCo__2C3393D0" FromRole="tblEmployee" ToRole="tbleTransferInfo" />
+    <NavigationProperty Name="tblSalaries" Relationship="Self.FK_tblSalary_tblEmployee" FromRole="tblEmployee" ToRole="tblSalary" />
+  </EntityType>
+  <EntityType Name="tblEmployeeType">
+    <Key>
+      <PropertyRef Name="EmpTypecode" />
+    </Key>
+    <Property Name="EmpTypecode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpType" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__EmpTy__1DE57479" FromRole="tblEmployeeType" ToRole="tblEmployee" />
+  </EntityType>
+  <EntityType Name="tbleTransferInfo">
+    <Key>
+      <PropertyRef Name="TRCode" />
+    </Key>
+    <Property Name="TRCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="TRDate" Type="DateTime" Precision="3" />
+    <Property Name="OldDeptCode" Type="Int32" />
+    <Property Name="NewDeptCode" Type="Int32" />
+    <Property Name="OldDesignationCode" Type="Int32" />
+    <Property Name="NewDesigtnationCode" Type="Int32" />
+    <Property Name="OldSecCode" Type="Int32" />
+    <Property Name="NewSecCode" Type="Int32" />
+    <Property Name="OldDivCode" Type="Int32" />
+    <Property Name="NewDivCode" Type="Int32" />
+    <Property Name="TrActivateDate" Type="DateTime" Precision="3" />
+    <Property Name="EmpCode" Type="Int32" />
+    <Property Name="StateStatus" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Remarks" Type="String" MaxLength="200" FixedLength="false" Unicode="true" />
+    <Property Name="EmpName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblEmployee" Relationship="Self.FK__tbleTrans__EmpCo__2C3393D0" FromRole="tbleTransferInfo" ToRole="tblEmployee" />
+  </EntityType>
+  <EntityType Name="tblSalary">
+    <Key>
+      <PropertyRef Name="SalaryCode" />
+    </Key>
+    <Property Name="SalaryCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpCode" Type="Int32" />
+    <Property Name="Basic" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="HouseRent" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Medical" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="OtherAllowance" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="Gross" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblEmployee" Relationship="Self.FK_tblSalary_tblEmployee" FromRole="tblSalary" ToRole="tblEmployee" />
+  </EntityType>
+  <EntityType Name="tblSalaryCreate">
+    <Key>
+      <PropertyRef Name="SalCreateCode" />
+      <PropertyRef Name="EmpCode" />
+    </Key>
+    <Property Name="SalCreateCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="EmpCode" Type="Int32" Nullable="false" />
+    <Property Name="BasicAmt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="HouseRentAmt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MedicalAmt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="OtherAllAmt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="GrossAmt" Type="String" MaxLength="20" FixedLength="false" Unicode="true" />
+    <Property Name="MonthNo" Type="Int32" />
+    <Property Name="YearNo" Type="Int32" />
+    <Property Name="SFromDT" Type="DateTime" Precision="3" />
+    <Property Name="SToDT" Type="DateTime" Precision="3" />
+    <Property Name="Createdate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="tblSection">
+    <Key>
+      <PropertyRef Name="SecCode" />
+    </Key>
+    <Property Name="SecCode" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="SectionName" Type="String" MaxLength="30" FixedLength="false" Unicode="true" />
+    <NavigationProperty Name="tblEmployees" Relationship="Self.FK__tblEmploy__SecCo__1BFD2C07" FromRole="tblSection" ToRole="tblEmployee" />
+  </EntityType>
+  <Association Name="FK__tblAttend__EmpCo__267ABA7A">
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="1" />
+    <End Role="tblAttendence" Type="Self.tblAttendence" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployee">
+        <PropertyRef Name="EmpCode" />
+      </Principal>
+      <Dependent Role="tblAttendence">
+        <PropertyRef Name="EmpCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblBenefi__EmpCo__29572725">
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+    <End Role="tblBenefit" Type="Self.tblBenefit" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployee">
+        <PropertyRef Name="EmpCode" />
+      </Principal>
+      <Dependent Role="tblBenefit">
+        <PropertyRef Name="EmpCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmploy__DeptC__1A14E395">
+    <End Role="tblDepartment" Type="Self.tblDepartment" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDepartment">
+        <PropertyRef Name="DeptCode" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="DeptCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblDesignation_tblDepartment">
+    <End Role="tblDepartment" Type="Self.tblDepartment" Multiplicity="0..1" />
+    <End Role="tblDesignation" Type="Self.tblDesignation" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDepartment">
+        <PropertyRef Name="DeptCode" />
+      </Principal>
+      <Dependent Role="tblDesignation">
+        <PropertyRef Name="DeptCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmploy__Desig__1B0907CE">
+    <End Role="tblDesignation" Type="Self.tblDesignation" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDesignation">
+        <PropertyRef Name="DesigCode" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="DesigCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmploy__DivCo__1CF15040">
+    <End Role="tblDivision" Type="Self.tblDivision" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblDivision">
+        <PropertyRef Name="DivCode" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="DivCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmploy__EmpTy__1DE57479">
+    <End Role="tblEmployeeType" Type="Self.tblEmployeeType" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployeeType">
+        <PropertyRef Name="EmpTypecode" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="EmpTypeCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tblEmploy__SecCo__1BFD2C07">
+    <End Role="tblSection" Type="Self.tblSection" Multiplicity="0..1" />
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblSection">
+        <PropertyRef Name="SecCode" />
+      </Principal>
+      <Dependent Role="tblEmployee">
+        <PropertyRef Name="SecCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__tbleTrans__EmpCo__2C3393D0">
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+    <End Role="tbleTransferInfo" Type="Self.tbleTransferInfo" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployee">
+        <PropertyRef Name="EmpCode" />
+      </Principal>
+      <Dependent Role="tbleTransferInfo">
+        <PropertyRef Name="EmpCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_tblSalary_tblEmployee">
+    <End Role="tblEmployee" Type="Self.tblEmployee" Multiplicity="0..1" />
+    <End Role="tblSalary" Type="Self.tblSalary" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="tblEmployee">
+        <PropertyRef Name="EmpCode" />
+      </Principal>
+      <Dependent Role="tblSalary">
+        <PropertyRef Name="EmpCode" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="testDbEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="tblAttendences" EntityType="Self.tblAttendence" />
+    <EntitySet Name="tblBenefits" EntityType="Self.tblBenefit" />
+    <EntitySet Name="tblDepartments" EntityType="Self.tblDepartment" />
+    <EntitySet Name="tblDesignations" EntityType="Self.tblDesignation" />
+    <EntitySet Name="tblDivisions" EntityType="Self.tblDivision" />
+    <EntitySet Name="tblEmployees" EntityType="Self.tblEmployee" />
+    <EntitySet Name="tblEmployeeTypes" EntityType="Self.tblEmployeeType" />
+    <EntitySet Name="tbleTransferInfoes" EntityType="Self.tbleTransferInfo" />
+    <EntitySet Name="tblSalaries" EntityType="Self.tblSalary" />
+    <EntitySet Name="tblSalaryCreates" EntityType="Self.tblSalaryCreate" />
+    <EntitySet Name="tblSections" EntityType="Self.tblSection" />
+    <AssociationSet Name="FK__tblAttend__EmpCo__267ABA7A" Association="Self.FK__tblAttend__EmpCo__267ABA7A">
+      <End Role="tblEmployee" EntitySet="tblEmployees" />
+      <End Role="tblAttendence" EntitySet="tblAttendences" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblBenefi__EmpCo__29572725" Association="Self.FK__tblBenefi__EmpCo__29572725">
+      <End Role="tblEmployee" EntitySet="tblEmployees" />
+      <End Role="tblBenefit" EntitySet="tblBenefits" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmploy__DeptC__1A14E395" Association="Self.FK__tblEmploy__DeptC__1A14E395">
+      <End Role="tblDepartment" EntitySet="tblDepartments" />
+      <End Role="tblEmployee" EntitySet="tblEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblDesignation_tblDepartment" Association="Self.FK_tblDesignation_tblDepartment">
+      <End Role="tblDepartment" EntitySet="tblDepartments" />
+      <End Role="tblDesignation" EntitySet="tblDesignations" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmploy__Desig__1B0907CE" Association="Self.FK__tblEmploy__Desig__1B0907CE">
+      <End Role="tblDesignation" EntitySet="tblDesignations" />
+      <End Role="tblEmployee" EntitySet="tblEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmploy__DivCo__1CF15040" Association="Self.FK__tblEmploy__DivCo__1CF15040">
+      <End Role="tblDivision" EntitySet="tblDivisions" />
+      <End Role="tblEmployee" EntitySet="tblEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmploy__EmpTy__1DE57479" Association="Self.FK__tblEmploy__EmpTy__1DE57479">
+      <End Role="tblEmployeeType" EntitySet="tblEmployeeTypes" />
+      <End Role="tblEmployee" EntitySet="tblEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tblEmploy__SecCo__1BFD2C07" Association="Self.FK__tblEmploy__SecCo__1BFD2C07">
+      <End Role="tblSection" EntitySet="tblSections" />
+      <End Role="tblEmployee" EntitySet="tblEmployees" />
+    </AssociationSet>
+    <AssociationSet Name="FK__tbleTrans__EmpCo__2C3393D0" Association="Self.FK__tbleTrans__EmpCo__2C3393D0">
+      <End Role="tblEmployee" EntitySet="tblEmployees" />
+      <End Role="tbleTransferInfo" EntitySet="tbleTransferInfoes" />
+    </AssociationSet>
+    <AssociationSet Name="FK_tblSalary_tblEmployee" Association="Self.FK_tblSalary_tblEmployee">
+      <End Role="tblEmployee" EntitySet="tblEmployees" />
+      <End Role="tblSalary" EntitySet="tblSalaries" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

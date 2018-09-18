@@ -1,0 +1,91 @@
+﻿@model IEnumerable<work_01.Models.tblAttendence>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Attendence Record</h2>
+
+<p class="text-right">
+    <button class="btn btn-default" id="btnCreate"><span class="glyphicon glyphicon-plus"></span>@Html.ActionLink("Create New", "Create")</button>
+</p>
+<table class="table table-bordered table-striped table-hover table-responsive" style="text-align:center">
+    <tr>
+        <th>
+            Employee Name
+        </th>
+        <th>
+            Attendenc Date
+        </th>
+        <th>
+            In Hour
+        </th>
+        <th>
+            In Minute
+        </th>
+        <th>
+            Out Hour
+        </th>
+        <th>
+            Out Minutes
+        </th>
+        <th>
+            Attendence Status
+        </th>
+        <th>
+            Total Regular Hour
+        </th>
+        <th>
+            Remarks
+        </th>
+        <th>
+            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <span style="color:blue" class="glyphicon glyphicon-edit"></span>
+            &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+            <span style="color:green" class="glyphicon glyphicon-dashboard"></span>
+            &nbsp;&nbsp;&nbsp;|&nbsp;&nbsp;&nbsp;
+            <span style="color:red" class="glyphicon glyphicon-trash"></span>
+        </th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.tblEmployee.EmpName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem=>item.AttDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.InMinute)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.OutHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.OutMinute)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AttStatus)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TotalRegularHour)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Remarks)
+            </td>
+            
+            <td>
+                <span style="color:blue" class="glyphicon glyphicon-edit">@Html.ActionLink("Edit", "Edit", new { id = item.EmpCode })</span>&nbsp;|
+                <span style="color:green" class="glyphicon glyphicon-dashboard">@Html.ActionLink("Details", "Details", new { id = item.EmpCode })</span>&nbsp;|
+                <span style="color:red" class="glyphicon glyphicon-trash">@Html.ActionLink("Delete", "Delete", new { id = item.EmpCode })</span> 
+            </td>
+        </tr>
+    }
+
+</table>

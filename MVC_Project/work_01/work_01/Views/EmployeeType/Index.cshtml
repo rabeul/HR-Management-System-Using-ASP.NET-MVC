@@ -1,0 +1,142 @@
+﻿@model work_01.Models.tblEmployeeType
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<div class="row">
+    <div class="col-md-3">
+        <h2>Add New</h2>
+        <div class="form-group">
+            <input type="hidden" name="ETCode" id="ETCode" class=" form-control" />
+            <label class="control-label">Employee Type</label>
+            <input type="text" name="Employee_Type" id="Employee_Type" class="form-control" required />
+        </div>
+        <div class="form-group">
+            <button type="submit" id="btnSave" class=" btn btn-success">Save</button>
+            <button type="submit" id="btnClear" class=" btn btn-default">Clear</button>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <h2>Employee Type</h2>
+        <table id="empType" class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Emp Type Code</th>
+                    <th>EmployeeType</th>
+                    <th>........</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+</div>
+@section scripts{
+    <script src="~/Scripts/jquery-1.10.2.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+           getEmployeeTypes();
+        });
+        var isUpdatable = false;
+        function getEmployeeTypes() {
+            $.ajax({
+
+                url: '/EmployeeType/GetEmployeeTypes',
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    var row = '';
+                    $.each(data, function (i, item) {
+                        row += "<tr>"
+                        row += "<td>" + item.EmpTypecode + "</td>"
+                        row += "<td>" + item.EmpType + "</td>"
+                        row += "<td><button type='button' id='btnEdit' class='btn btn-primary' onclick='getEmployeeTypeByETCode(" + item.EmpTypecode + ")'>Edit</button>|<button type='button' id='btnDelete' class='btn btn-danger' onclick='deleteEmployeeTypeByETCode(" + item.EmpTypecode + ")'>Delete</button></td>"
+                        row += "</tr>";
+                        $("#empType tbody").html(row);
+                    })
+                }
+            })
+        }
+
+        //get EmployeeType by ETCode//
+        function getEmployeeTypeByETCode(id) {
+            $.ajax({
+                url: '/EmployeeType/Get/' + id,
+                type: 'GET',
+                dataType: 'json',
+                success: function (data) {
+                    $("#ETCode").val(data.EmpTypecode);
+                    $("#Employee_Type").val(data.EmpType);
+                    isUpdatable = true;
+                },
+                error: function (err) {
+                    alert("Error:" + err.responseText);
+                }
+            })
+        }
+        //Insert
+        $("#btnSave").click(function () {
+            var data = {
+                ETCode: $("#ETCode").val(),
+                EmployeeType: $("#Employee_Type").val(),
+
+            }
+            if (!isUpdatable) {
+                $.ajax({
+                    url: '/EmployeeType/Create/',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        getEmployeeTypes();
+                        Clear();
+                    },
+                    error: function (err) {
+                        alert("Error:" + err.responseText);
+                    }
+                })
+            }
+            else {
+                $.ajax({
+                    url: '/EmployeeType/Update/',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: data,
+                    success: function (data) {
+                        getEmployeeTypes();
+                        Clear();
+                    },
+                    error: function (err) {
+                        alert("Error:" + err.responseText);
+                    }
+                })
+            }
+        })
+       
+        //Delete
+        function deleteEmployeeTypeByETCode(id) {
+            $.ajax({
+                url: '/EmployeeType/Delete/' + id,
+                type: 'POST',
+                dataType: 'json',
+                success: function (data) {
+                    getEmployeeTypes();
+                },
+                error: function (err) {
+                    alert("Error:" + err.responseText);
+                }
+            });
+        }
+        $("#btnClear").click(function () {
+            Clear();
+        })
+        function Clear() {
+            $("#ETCode").val("");
+            $("#Employee_Type").val("");
+
+        }
+    </script>
+}
+

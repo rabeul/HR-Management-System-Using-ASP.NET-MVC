@@ -1,0 +1,188 @@
+﻿@model work_01.Models.tblDepartment
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Department</h2>
+
+<p>
+    <button type="button" id="btnCreate" class="btn btn-primary"
+            data-toggle="modal" data-target="#depModel">
+        <span class="glyphicon glyphicon-plus"></span>
+    </button>
+</p>
+
+<table class="table table-bordered" id="departmentName">
+    <thead>
+        <tr>
+            <th>Dept Code</th>
+            <th>Department Name</th>
+            <th>-----</th>
+        </tr>
+    </thead>
+    <tbody></tbody>
+</table>
+<div id="depModel" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" id="btnClose">&times;</button>
+                <h3 class="modal-title"><label id="title"></label></h3>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">
+                    <div class="form-group">
+                        <div class="col-md-9">
+                            <input type="hidden" class="form-control" id="DeptCode" />
+                            <label class="control-label">Department Name</label>
+                            <input type="text" class="form-control" id="DepartmentName" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" id="btnSave" class="btn btn-primary">Save</button>
+                <button type="button" id="btnCancle" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="ConfirmModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" id="btnClose" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title"><label id="title"></label></h4>
+            </div>
+            <div class="modal-body">
+                <div class="form-horizontal">Do You want to delete this record??</div>
+            </div>
+            <div class="modal-footer">
+                <button type="submit" id="btnOk" class="btn btn-success">Ok</button>
+                <button type="button" id="btnCancel" class="btn btn-danger" data-dismiss="modal">Cancel</button>
+            </div>
+        </div>
+    </div>
+</div>
+@section scripts{
+
+    <script src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <script type="text/javascript">
+        $(document).ready(function () {
+            GetDepartments();
+        });
+        var isUpdatable = false;
+        function GetDepartments() {
+            $.ajax({
+                url: "/Department/GetDepartments",
+                type: "GET",
+                dataType: 'json',
+                success: function (data) {
+                    var row = '';
+                    $.each(data, function (i,item) {
+                        row += "<tr>";
+                        row += "<td>" + item.DeptCode + "</td>";
+                        row += "<td>" + item.DepartmentName + "</td>";
+                        row += "<td><button type='button' id='btnEdit' class='btn btn-default' onclick='return getDepartmentByDeptCode(" + item.DeptCode + ")'><span class='glyphicon glyphicon-edit'></span></button>&nbsp;<button type='button' id='btnEdit' class='btn btn-danger' onclick='return deleteDepartmentByDeptCode(" + item.DeptCode + ")'><span class='glyphicon glyphicon-trash'></span></button></td>";
+                        row += "</tr>";
+                        $("#departmentName tbody").html(row);
+                    })
+                }
+
+            })
+        }
+        function getDepartmentByDeptCode(DeptCode) {
+            $("#title").text("Department Details");
+            $.ajax({
+                url: "/Department/Get/" + DeptCode,
+                type: "GET",
+                dataType: "json",
+                success: function (data) {
+                    $("#DeptCode").val(data.DeptCode);
+                    $("#DepartmentName").val(data.DepartmentName);
+                    isUpdatable = true;
+                    $("#depModel").modal('show');
+                },
+                error: function (err) {
+                    alert("Error :" + err.responseText);
+                }
+            })
+
+        }
+        $("#btnSave").click(function (e) {
+            var data = {
+
+                DepCode: $("#DeptCode").val(),
+                DepartmentName: $("#DepartmentName").val()
+            }
+            if (!isUpdatable) {
+                $.ajax({
+                    url: "/Department/Create/",
+                    type: "POST",
+                    dataType: "json",
+                    data: data,
+                    success: function (data) {
+                        GetDepartments();
+                        $("#depModel").modal('hide');
+                    },
+                    error: function (err) {
+                        alert("Error :" + err.responseText);
+                    }
+
+                });
+            }
+            else {
+                $.ajax({
+                    url: "/Department/Update/",
+                    type: "POST",
+                    dataType: "json",
+                    data: data,
+                    success: function (data) {
+                        GetDepartments();
+                        $("#depModel").modal('hide');
+                    },
+                    error: function (err) {
+                        alert("Error :" + err.responseText);
+                    }
+
+                })
+            }
+        });
+        function deleteDepartmentByDeptCode(DeptCode) {
+            $("#ConfirmModal #title").text("Delete DepartmentName");
+            $("#ConfirmModal").modal('show');
+            $("#ConfirmModal #btnOk").click(function (e) {
+                $.ajax({
+                    url: "/Department/Delete/" + DeptCode,
+                    type: "POST",
+                    dataType: "json",
+                    success: function (data) {
+                        GetDepartments();
+                        $("#confirmModal").modal('hide');
+                    },
+                    error: function (err) {
+                        alert("Error :" + err.responseText);
+                    }
+                });
+                e.preventDefault();
+            })
+        }
+        $("#btnCreate").click(function () {
+            $("#title").text(" Create New");
+
+            $("#btnClose").click(function () {
+                Clear();
+            })
+            function Clear() {
+                $("#DeptCode").val("");
+                $("#DepartmentName").val("");
+            }
+        })
+    </script>
+
+
+}
+

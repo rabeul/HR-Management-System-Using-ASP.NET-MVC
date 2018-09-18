@@ -1,0 +1,102 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top" id="nav">
+        <div>
+            <img src="~/images/web1.png" class="webbanner" />
+        </div>
+        <div class="">
+
+            <div class="navbar-header">
+
+
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @*@Html.ActionLink("Application name", "Index", "Home", null, new { @class = "navbar-brand" })*@
+            </div>
+            <div class="navbar-collapse collapse">
+                <div class="row">
+                    <div class="col-md-3">
+                        <div class="navbar">
+                            <div class="menu">
+                                <ul>
+                                    <li id="li">
+                                        <a href="#">Menu</a>
+                                        <ul>
+                                            <li class="form-control" style="width:180px;">
+                                                <a href="#">HR</a>
+                                                <ul id="ul">
+                                                    <li class="form-control" style="width:180px;">@Html.ActionLink("Department","Index","Department")</li>
+                                                    <li class="form-control" style="width:180px;">@Html.ActionLink("Division", "Index", "Divisions")</li>
+                                                    <li class="form-control" style="width:180px;">@Html.ActionLink("Designation","Index","tblDesignations")</li>
+                                                    <li class="form-control" style="width:180px;">@Html.ActionLink("Employee Type", "Index", "EmployeeType")</li>
+                                                    <li class="form-control" style="width:180px;">@Html.ActionLink("Employee", "Index", "Employees")</li>
+                                                    <li class="form-control" style="width:180px;">@Html.ActionLink("Attendance", "Index", "Attendences")</li>
+                                                    <li class="form-control" style="width:180px;">@Html.ActionLink("Benefit", "Index", "Benefits")</li>
+                                                    <li class="form-control" style="width:180px;">@Html.ActionLink("Transfer", "Index", "TransferInfoes")</li>
+                                                    <li class="form-control" style="width:180px;">@Html.ActionLink("Section", "Index", "Section")</li>
+                                                    <li class="form-control" style="width:180px;"><a href="salary.aspx">Salary</a></li>
+                                                    
+                                                </ul>
+                                            </li>
+                                        </ul>
+                                    </li>
+                                </ul>
+
+                            </div>
+
+                        </div>
+                    </div>
+                    <div class="col-md-6"></div>
+                    <div class="col-md-3">
+                        <div id="menuright">
+                            <a class="c" href="@Url.Action("Index", "Home")">
+                                <img src="~/images/home1.jpg" title="Home"/>
+                            </a>
+                            <a class="c" href="@Url.Action("About", "Home")">
+                                <img src="~/images/profile.jpg" title="About"/>
+                            </a>
+                            <a class="c" href="@Url.Action("Index", "Home")">
+                                <img src="~/images/logout.jpg" title="Logout"/>
+                            </a>
+                            @*<ul id="a">
+                                @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+                            @*<li>@Html.ActionLink("About", "About", "Home")</li>
+                                <li>@Html.ActionLink("Contact", "Contact", "Home")</li>*@
+                            @*</ul>*@
+                        </div>
+                    </div>
+                </div>
+
+
+                @*@Html.Partial("_LoginPartial")*@
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        <div class="mainContent">
+            @RenderBody()
+        </div>
+
+        <hr />
+        <footer>
+            <p>&copy; @DateTime.Now.Year - ESAD/CS-R33</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

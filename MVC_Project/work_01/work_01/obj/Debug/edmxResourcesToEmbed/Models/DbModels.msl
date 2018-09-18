@@ -1,0 +1,164 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="testDbModelStoreContainer" CdmEntityContainer="testDbEntities">
+    <EntitySetMapping Name="tblAttendences">
+      <EntityTypeMapping TypeName="testDbModel.tblAttendence">
+        <MappingFragment StoreEntitySet="tblAttendence">
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="AttDate" ColumnName="AttDate" />
+          <ScalarProperty Name="InHour" ColumnName="InHour" />
+          <ScalarProperty Name="InMinute" ColumnName="InMinute" />
+          <ScalarProperty Name="OutHour" ColumnName="OutHour" />
+          <ScalarProperty Name="OutMinute" ColumnName="OutMinute" />
+          <ScalarProperty Name="AttStatus" ColumnName="AttStatus" />
+          <ScalarProperty Name="TotalRegularHour" ColumnName="TotalRegularHour" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblBenefits">
+      <EntityTypeMapping TypeName="testDbModel.tblBenefit">
+        <MappingFragment StoreEntitySet="tblBenefit">
+          <ScalarProperty Name="BenefitCode" ColumnName="BenefitCode" />
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="BenefitAmount" ColumnName="BenefitAmount" />
+          <ScalarProperty Name="BenefitDate" ColumnName="BenefitDate" />
+          <ScalarProperty Name="BenefitType" ColumnName="BenefitType" />
+          <ScalarProperty Name="PreviousNetSalary" ColumnName="PreviousNetSalary" />
+          <ScalarProperty Name="NewNetSalary" ColumnName="NewNetSalary" />
+          <ScalarProperty Name="Gross" ColumnName="Gross" />
+          <ScalarProperty Name="Basic" ColumnName="Basic" />
+          <ScalarProperty Name="HouseRent" ColumnName="HouseRent" />
+          <ScalarProperty Name="Medical" ColumnName="Medical" />
+          <ScalarProperty Name="ConvenceAll" ColumnName="ConvenceAll" />
+          <ScalarProperty Name="CashIntensive" ColumnName="CashIntensive" />
+          <ScalarProperty Name="launceAllowance" ColumnName="launceAllowance" />
+          <ScalarProperty Name="otherAllowance" ColumnName="otherAllowance" />
+          <ScalarProperty Name="StateStatus" ColumnName="StateStatus" />
+          <ScalarProperty Name="BenifitActiveDate" ColumnName="BenifitActiveDate" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDepartments">
+      <EntityTypeMapping TypeName="testDbModel.tblDepartment">
+        <MappingFragment StoreEntitySet="tblDepartment">
+          <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+          <ScalarProperty Name="DepartmentName" ColumnName="DepartmentName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDesignations">
+      <EntityTypeMapping TypeName="testDbModel.tblDesignation">
+        <MappingFragment StoreEntitySet="tblDesignation">
+          <ScalarProperty Name="DesigCode" ColumnName="DesigCode" />
+          <ScalarProperty Name="Designation" ColumnName="Designation" />
+          <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblDivisions">
+      <EntityTypeMapping TypeName="testDbModel.tblDivision">
+        <MappingFragment StoreEntitySet="tblDivision">
+          <ScalarProperty Name="DivCode" ColumnName="DivCode" />
+          <ScalarProperty Name="Division" ColumnName="Division" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmployees">
+      <EntityTypeMapping TypeName="testDbModel.tblEmployee">
+        <MappingFragment StoreEntitySet="tblEmployee">
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Email" ColumnName="Email" />
+          <ScalarProperty Name="DOB" ColumnName="DOB" />
+          <ScalarProperty Name="FatherName" ColumnName="FatherName" />
+          <ScalarProperty Name="MotherName" ColumnName="MotherName" />
+          <ScalarProperty Name="ContactNo" ColumnName="ContactNo" />
+          <ScalarProperty Name="Gender" ColumnName="Gender" />
+          <ScalarProperty Name="Nationality" ColumnName="Nationality" />
+          <ScalarProperty Name="Religion" ColumnName="Religion" />
+          <ScalarProperty Name="NID" ColumnName="NID" />
+          <ScalarProperty Name="JoiningDate" ColumnName="JoiningDate" />
+          <ScalarProperty Name="DeptCode" ColumnName="DeptCode" />
+          <ScalarProperty Name="DesigCode" ColumnName="DesigCode" />
+          <ScalarProperty Name="SecCode" ColumnName="SecCode" />
+          <ScalarProperty Name="DivCode" ColumnName="DivCode" />
+          <ScalarProperty Name="EmpTypeCode" ColumnName="EmpTypeCode" />
+          <ScalarProperty Name="CurrentSalary" ColumnName="CurrentSalary" />
+          <ScalarProperty Name="AccNo" ColumnName="AccNo" />
+          <ScalarProperty Name="BankName" ColumnName="BankName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblEmployeeTypes">
+      <EntityTypeMapping TypeName="testDbModel.tblEmployeeType">
+        <MappingFragment StoreEntitySet="tblEmployeeType">
+          <ScalarProperty Name="EmpTypecode" ColumnName="EmpTypecode" />
+          <ScalarProperty Name="EmpType" ColumnName="EmpType" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tbleTransferInfoes">
+      <EntityTypeMapping TypeName="testDbModel.tbleTransferInfo">
+        <MappingFragment StoreEntitySet="tbleTransferInfo">
+          <ScalarProperty Name="TRCode" ColumnName="TRCode" />
+          <ScalarProperty Name="TRDate" ColumnName="TRDate" />
+          <ScalarProperty Name="OldDeptCode" ColumnName="OldDeptCode" />
+          <ScalarProperty Name="NewDeptCode" ColumnName="NewDeptCode" />
+          <ScalarProperty Name="OldDesignationCode" ColumnName="OldDesignationCode" />
+          <ScalarProperty Name="NewDesigtnationCode" ColumnName="NewDesigtnationCode" />
+          <ScalarProperty Name="OldSecCode" ColumnName="OldSecCode" />
+          <ScalarProperty Name="NewSecCode" ColumnName="NewSecCode" />
+          <ScalarProperty Name="OldDivCode" ColumnName="OldDivCode" />
+          <ScalarProperty Name="NewDivCode" ColumnName="NewDivCode" />
+          <ScalarProperty Name="TrActivateDate" ColumnName="TrActivateDate" />
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="StateStatus" ColumnName="StateStatus" />
+          <ScalarProperty Name="Remarks" ColumnName="Remarks" />
+          <ScalarProperty Name="EmpName" ColumnName="EmpName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSalaries">
+      <EntityTypeMapping TypeName="testDbModel.tblSalary">
+        <MappingFragment StoreEntitySet="tblSalary">
+          <ScalarProperty Name="SalaryCode" ColumnName="SalaryCode" />
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="Basic" ColumnName="Basic" />
+          <ScalarProperty Name="HouseRent" ColumnName="HouseRent" />
+          <ScalarProperty Name="Medical" ColumnName="Medical" />
+          <ScalarProperty Name="OtherAllowance" ColumnName="OtherAllowance" />
+          <ScalarProperty Name="Gross" ColumnName="Gross" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSalaryCreates">
+      <EntityTypeMapping TypeName="testDbModel.tblSalaryCreate">
+        <MappingFragment StoreEntitySet="tblSalaryCreate">
+          <ScalarProperty Name="SalCreateCode" ColumnName="SalCreateCode" />
+          <ScalarProperty Name="EmpCode" ColumnName="EmpCode" />
+          <ScalarProperty Name="BasicAmt" ColumnName="BasicAmt" />
+          <ScalarProperty Name="HouseRentAmt" ColumnName="HouseRentAmt" />
+          <ScalarProperty Name="MedicalAmt" ColumnName="MedicalAmt" />
+          <ScalarProperty Name="OtherAllAmt" ColumnName="OtherAllAmt" />
+          <ScalarProperty Name="GrossAmt" ColumnName="GrossAmt" />
+          <ScalarProperty Name="MonthNo" ColumnName="MonthNo" />
+          <ScalarProperty Name="YearNo" ColumnName="YearNo" />
+          <ScalarProperty Name="SFromDT" ColumnName="SFromDT" />
+          <ScalarProperty Name="SToDT" ColumnName="SToDT" />
+          <ScalarProperty Name="Createdate" ColumnName="Createdate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="tblSections">
+      <EntityTypeMapping TypeName="testDbModel.tblSection">
+        <MappingFragment StoreEntitySet="tblSection">
+          <ScalarProperty Name="SecCode" ColumnName="SecCode" />
+          <ScalarProperty Name="SectionName" ColumnName="SectionName" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

@@ -1,0 +1,86 @@
+﻿@model IEnumerable<work_01.Models.tbleTransferInfo>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.TRDate)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.NewDeptCode)
+        </th>
+       
+        <th>
+            @Html.DisplayNameFor(model => model.NewDesigtnationCode)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.NewSecCode)
+        </th>
+        
+        <th>
+            @Html.DisplayNameFor(model => model.NewDivCode)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.TrActivateDate)
+        </th>
+       
+        
+        <th>
+            @Html.DisplayNameFor(model => model.EmpName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tblEmployee.EmpName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.TRDate)
+        </td>
+       
+        <td>
+            @Html.DisplayFor(modelItem => item.NewDeptCode)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.NewDesigtnationCode)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.NewSecCode)
+        </td>
+        
+        <td>
+            @Html.DisplayFor(modelItem => item.NewDivCode)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.TrActivateDate)
+        </td>
+      
+        <td>
+            @Html.DisplayFor(modelItem => item.EmpName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.tblEmployee.EmpName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.TRCode }) |
+            @Html.ActionLink("Details", "Details", new { id=item.TRCode }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.TRCode })
+        </td>
+    </tr>
+}
+
+</table>

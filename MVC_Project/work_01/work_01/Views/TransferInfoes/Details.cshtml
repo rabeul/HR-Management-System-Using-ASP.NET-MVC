@@ -1,0 +1,130 @@
+﻿@model work_01.Models.tbleTransferInfo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>tbleTransferInfo</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TRDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TRDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OldDeptCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OldDeptCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewDeptCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewDeptCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OldDesignationCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OldDesignationCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewDesigtnationCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewDesigtnationCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OldSecCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OldSecCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewSecCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewSecCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.OldDivCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.OldDivCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.NewDivCode)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NewDivCode)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TrActivateDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TrActivateDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StateStatus)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StateStatus)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Remarks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Remarks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmpName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmpName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tblEmployee.EmpName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tblEmployee.EmpName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TRCode }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
